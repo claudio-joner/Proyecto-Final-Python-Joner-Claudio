@@ -4,10 +4,11 @@
 
 {% block herencia %}
 
+  
 
-    <h1>Formulario - Agregar Mascota</h1>
+    <h1>Formulario - Editar Dueño/a</h1>
     
-    {% if miFormulario.errors %}
+    {% if  miFormularioPersona.errors %}
 
     <p style="color: red;"> Están mal los datos, revisar</p>
 
@@ -19,7 +20,7 @@
        
         <table>
 
-            {{ miFormulario.as_table }}
+            {{  miFormularioPersona.as_table }}
 
 
         </table>
@@ -28,8 +29,11 @@
         <input type="submit", value="Enviar">
 
     </form>
-
-    
+  
 
 {% endblock %}
+
+
+
+
 

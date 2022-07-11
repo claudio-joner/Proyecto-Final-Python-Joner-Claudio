@@ -3,21 +3,22 @@
 {% load static %}
 
 {% block herencia %}
-
-    <p>El nombre de la mascota es: {{nombreAnimal}}</p>
+    
+    <h1>MASCOTAS</h1>
 
    {% if mascotas %}
 
    <ul>
-    {% for mascota in mascotas %}
-        <li>{{mascota.nombreAnimal}}</li>
-        <li>{{mascota.edad}}</li>
-        <li>{{mascota.tipo}}</li>
-        <li>{{mascota.motivo}}</li>
-        <li>{{mascota.fecha}}</li>
-        <li>{{mascota.costo}}</li>
+    {% for m in mascotas %}
+        <li>{{m}}</li>
+        <br>
     {% endfor %}
    </ul>
+   <p>
+        <a href="formularioMascota">Agregar/</a>
+        <a href="">Borrar/ </a>
+        <a href="">Actualizar</a>
+    </p>
    
    {% endif %}
 

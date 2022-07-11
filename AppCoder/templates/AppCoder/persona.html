@@ -5,13 +5,22 @@
 {% block herencia %}
 
 
-    <h1>Dueño</h1>
-    <h1>Mostrando herencia</h1>
-    <p style="background-color: rgb(98, 255, 0)">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-        Accusantium voluptates perspiciatis, quidem omnis molestias eos nihil b
-        eatae. Facilis, rerum cum 
-        unde ex error non odit excepturi sint beatae ipsa dolorem?
+    <h1>Listado de Dueños</h1>
+    
+    
+        {% for p in personas %}
+            <li>{{p}}</li>
+            <button>
+                <a href="{% url 'eliminarPersona' p.nombre %}">Borrar/ </a>
+                <a href="{% url 'editarPersona' p.nombre %}">Actualizar</a>
+            </button>
+        {% endfor %}
+    <p>
+        <a href="formularioPersona">Agregar/</a>
+        
     </p>
-  
+
+
+    
 
 {% endblock %}

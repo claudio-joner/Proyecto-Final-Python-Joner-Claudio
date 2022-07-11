@@ -7,3 +7,8 @@ class AnimalFormulario(forms.Form):
     motivo= forms.CharField(max_length=40)
     fecha= forms.DateField()
     costo= forms.IntegerField()
+
+class PersonaFormulario(forms.Form):
+    nombre= forms.CharField(max_length=40)
+    apellido= forms.CharField(max_length=40)
+    telefono= forms.IntegerField()
