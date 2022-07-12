@@ -8,9 +8,9 @@
 
     <h1>Formulario - Agregar Dueño/a</h1>
     
-    {% if  miFormulario.errors %}
+    {% if  miFormularioPersona.errors %}
 
-        <p style="color: red;"> Están mal los datos, revisar</p>
+    <p style="color: red;"> Están mal los datos, revisar</p>
 
     {% endif %}
 
@@ -20,7 +20,7 @@
        
         <table>
 
-            {{  miFormulario.as_table }}
+            {{  miFormularioPersona.as_table }}
 
 
         </table>

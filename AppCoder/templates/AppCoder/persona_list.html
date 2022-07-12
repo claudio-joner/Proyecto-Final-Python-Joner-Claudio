@@ -10,20 +10,24 @@
     <h1>Listado de Dueños</h1>
     
     
-    {% for p in object_list %}
-        <li>
-            <p>Nombre:{{p.nombre}} | Apellido:{{p.apellido}} |Telefono:{{p.telefono}}</p>
-            <p>
-                <a href="{% url 'Detail' p.id %}">Ver| </a>
-                <a href="{% url 'Edit' p.id %}">Editar|</a>
-                <a href="{% url 'Delete' p.id %}">Borrar</a>
-            </p>
+    <ul>
+        {% for persona in object_list %}
+            <li>
+                <p>Nombre:{{persona.nombre}}</p>
+                <p>
+                    <a href="{% url 'Detail' persona.id %}">Ver| </a>
+                    <a href="{% url 'Edit' persona.id %}">Editar|</a>
+                    <a href="{% url 'Delete' persona.id %}">Borrar</a>
+                </p>
 
-        </li>
+            </li>
         
-    {% endfor %}
+        {% endfor %}
+    </ul>
+    
 <p>
-    <a href="formularioPersona">Agregar/</a>
+    
+    <a href="{% url 'New'  %}">Nuevo</a> 
     
 </p>
 

@@ -1,12 +1,17 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-
-from AppCoder.forms import AnimalFormulario,PersonaFormulario
+from AppCoder.forms import AnimalFormulario,PersonaFormulario,UserRegisterForm
 from AppCoder.models import Animal,Persona,Veterinario
-
+#CVB
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView,UpdateView,DeleteView
+from django.urls import reverse_lazy
+#-Loguin
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth import login,logout,authenticate
+from django.contrib.auth.decorators import login_required
+
 
 
 # Create your views here.
@@ -106,14 +111,12 @@ def editarPersona(request,persona_nombre):
     persona = Persona.objects.get(nombre = persona_nombre)
 
     if request.method == 'POST':
+        miFormularioPersona = PersonaFormulario(request.POST)
+        print(miFormularioPersona)
 
-        miFormulario = PersonaFormulario(request.POST)
-
-        print(miFormulario)
-
-        if miFormulario.is_valid:
+        if miFormularioPersona.is_valid:
             
-            informacion = miFormulario.cleaned_data
+            informacion = miFormularioPersona.cleaned_data
 		    
             persona.nombre=informacion['nombre']
             persona.apellido=informacion['apellido']
@@ -124,10 +127,10 @@ def editarPersona(request,persona_nombre):
             return render(request, "AppCoder/inicio.html")
 
     else:
-        miFormulario= PersonaFormulario(initial={'nombre': persona.nombre, 'apellido':persona.apellido , 
+        miFormularioPersona= PersonaFormulario(initial={'nombre': persona.nombre, 'apellido':persona.apellido , 
             'telefono':persona.telefono}) 
     
-    return render(request, "AppCoder/editarPersona.html", {" miFormulario": miFormulario, "persona_nombre":persona_nombre})
+    return render(request, "AppCoder/editarPersona.html", {"miFormularioPersona": miFormularioPersona, "persona_nombre":persona_nombre})
         
 
 def eliminarPersona(request,persona_nombre):
@@ -140,26 +143,36 @@ def eliminarPersona(request,persona_nombre):
 #-----------------------------------------PersonaCBV-------------------------------------------------------
 
 class PersonaList(ListView):
-    name="AppCoder/persona_list.html"
-    model: Persona
-    template_name:name
+    model= Persona
+    template_name= "AppCoder/persona_list.html"
 
- class PersonaDetalle(DetailView):
-     model: Persona
-    template_name: "AppCoder/persona_detalle.html"
+
+
+class PersonaDetalle(DetailView): 
+    model=Persona
+    template_name= "AppCoder/persona_detalle.html"
+
+
 
 class PersonaCreacion(CreateView):
-     model: Persona
-     succcess_url = "/AppCoder/persona/list"	
-     fields = ['nombre','apellido','telefono']
-
- class PersonaUpdate(UpdateView):
-     model: Persona
-     succcess_url = "/AppCoder/persona/list"	
+    model= Persona
+    succcess_url = "/AppCoder/persona/list"	
     fields = ['nombre','apellido','telefono']
 
- class CursoDelete(DeleteView):
-     model: Persona
+
+
+
+class PersonaUpdate(UpdateView):
+    
+    model= Persona
+    succcess_url = "/AppCoder/persona/list"	
+    fields = ['nombre','apellido','telefono']
+
+
+
+
+class CursoDelete(DeleteView):  
+    model= Persona
     succcess_url = "/AppCoder/persona/list"	
 
 
@@ -168,3 +181,46 @@ class PersonaCreacion(CreateView):
 def veterinario(request):
     return render(request,"AppCoder/veterinario.html")
 
+
+
+#-----------------------------------------Loguin/Register-------------------------------------------------------
+def login_request(request):
+    if request.method == 'POST':
+
+        form = AuthenticationForm(request, data =request.POST)
+        if form.is_valid():
+            usuario = form.cleaned_data.get('username')
+            contra = form.cleaned_data.get('password')
+
+            user = authenticate(username=usuario,password = contra)
+
+            if user is not None:
+                login(request,user)
+                return render(request,"AppCoder/inicio.html",{"mensaje":f"Bienvenido{usuario}"})
+            else:
+                return render(request,"AppCoder/inicio.html",{"mensaje":"Error,datos incorrectos"})
+
+        else:
+            return render(request,"AppCoder/inicio.html",{"mensaje":"Error,formulario erroneo"})
+
+    form = AuthenticationForm()
+
+    return render(request,"AppCoder/login.html",{'form':form})
+
+
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            form.save()
+            return render(request,"AppCoder/inicio.html",{"mensaje":"Usuario Creado :)"})
+    else:
+        #form = UserRegisterForm()
+        form = UserCreationForm()
+    return render(request,"AppCoder/registro.html",{"form":form})
+
+@login_required
+def inicio(request):
+    return render(request,"AppCoder/inicio.html")
