@@ -6,22 +6,43 @@ Debajo se encuentra el link para ver la app en funcionamiento
 # Video Demostración.
 https://youtu.be/-H87qxX9Zgs
 
-#DOCUMENTACIÓN.
+_______________________________________________________________________________________________________________________________________________________________________
+# DOCUMENTACIÓN.
+Para poder encontrar los archivos que nombrare a posterior ingresar  en la carpeta AppCoder.
+Los archivos son: models.py, forms.py, urls.py, views.py,la carpeta de templates, entre otros.
 
-Para poder encontrar los archivos que nombrare a posterior ingresar  en la caperta AppCoder.
+_______________________________________________________________________________________________________________________________________________________________________
+# Models.py:
+En este archivo podemos encontrar los modelos de datos usados por el backend.
 
-Descripcion: modelo Animal. Campos: -nombreAnimal(Char, nombre de la mascota) -edad(Integer,edad de la mascota) -tipo(Char,ej:perro,gato,iguana,etc) -motivo(Char,ej:peluqueria,vacunas,etc) -fecha(Date,es la fecha de ingreso a la veterinaria) -costo(Integer, el precio de lo que lo se le haya echo al animal)
+Descripcion: modelo Animal. 
+Campos: -nombreAnimal(Char, nombre de la mascota) -edad(Integer,edad de la mascota) -tipo(Char,ej:perro,gato,iguana,etc) -motivo(Char,ej:peluqueria,vacunas,etc) -fecha(Date,es la fecha de ingreso a la veterinaria) -costo(Integer, el precio de lo que lo se le haya echo al animal)
 
-Descripcion: modelo Persona. Campos: -nombre(Char, nombre del dueño de la mascota) -apellido= (Char, apellido del dueño de la mascota) -telefono= (Integer, numero del dueño de la mascota)
+Descripcion: modelo Persona. 
+Campos: -nombre(Char, nombre del dueño de la mascota) -apellido= (Char, apellido del dueño de la mascota) -telefono= (Integer, numero del dueño de la mascota)
 
-Descripcion: modelo Veterinario. Campos: -veterinario(Char, nombre del veterinario) -apellidoVet= (Char, apellido del veterinario) -matricula= (Integer, numero de matricula del veterinario)
+Descripcion: modelo Veterinario. 
+Campos: -veterinario(Char, nombre del veterinario) -apellidoVet= (Char, apellido del veterinario) -matricula= (Integer, numero de matricula del veterinario)
+_______________________________________________________________________________________________________________________________________________________________________
+# Forms.py:
+En este archivo podemos encontrar los formularios usados para cargar los datos que quedan guardados en nuestra base de datos.
+Son 5 los formularios, uno por cada modelo , otro para poder registrar los usuarios nuevos y el último que sirve para edirtar el perfil de un usuario.
+_______________________________________________________________________________________________________________________________________________________________________
+# Urls.py:
+Contiene cada una de las rutas de las vistas de la app. 
+_______________________________________________________________________________________________________________________________________________________________________
+# Views.py:
+Aparecen todas las vistas que se utilizan en la app.
+Asociado a lo anterior por cada modelo se aplica el concepto de CRUD(Create, Read, Update, Delete); una vista de logueo, registro y edicion de perfil del usuario.Además tenemos la vista para buscar una mascota por su nombre.
+Ejemplo de vistas (CRUD) para el Modelo Animal: 
+Create:formularioMascota
+Read:leerMascota
+Update:editarMascota
+Delete:eliminarMascota
 
-La diposición de la página es la siguiente: -Menú: Tenemos una barra de navegación. Esta tiene los sigueientes botones: *Inicio: redirecciona template padre(inicio.html), lo demás templates heredan ccs y html de él. *Dueño/a: muestra un herencia y un lorem *Veterinario: muestra un herencia y un lorem *Formularios: abri un formulario para cargar los datos de una mascota (Modelo: Animal). *Busqueda: formulario para buscar una mascota por su nombre.
+_______________________________________________________________________________________________________________________________________________________________________
+# Templates:
+Es una carpeta donde se encuentran todos los archivos HTML,usados por la app. Se utilza una platilla de BOOSTRAP y se aplica el concep de herencia a cada archivo.
 
--Titulo: muestra el nombre de la veterinaria.
-
--Pie.
-
-Cabe aclarar que toda la informacion se presenta entre el titulos y el pie,se aplica herencia.git 
-
-
+_______________________________________________________________________________________________________________________________________________________________________
+# Autor: Joner Claudio
