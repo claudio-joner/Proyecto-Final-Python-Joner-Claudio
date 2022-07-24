@@ -1,6 +1,11 @@
-# Proyecto-Final-Python-Joner-Claudio
+# Proyecto-Final-Python-Joner-Claudio.
 
 La tematica de la app creada, es sobre una veterinaria. La aplicación cuenta con 3 modelos: Animal ,Persona y Veterinario.
+
+# Video Demostración.
+https://youtu.be/-H87qxX9Zgs
+
+
 
 Descripcion: modelo Animal. Campos: -nombreAnimal(Char, nombre de la mascota) -edad(Integer,edad de la mascota) -tipo(Char,ej:perro,gato,iguana,etc) -motivo(Char,ej:peluqueria,vacunas,etc) -fecha(Date,es la fecha de ingreso a la veterinaria) -costo(Integer, el precio de lo que lo se le haya echo al animal)
 
