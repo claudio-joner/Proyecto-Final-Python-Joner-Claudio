@@ -27,8 +27,6 @@ def leerMascota(request):
     return render(request,"AppCoder/animal.html",contexto)
 
 def formularioMascota(request):
-
-
     if request.method == 'POST':
         miFormulario = AnimalFormulario(request.POST)
         print(miFormulario)
