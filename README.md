@@ -1,11 +1,13 @@
 # Proyecto-Final-Python-Joner-Claudio.
-
-La tematica de la app creada, es sobre una veterinaria. La aplicación cuenta con 3 modelos: Animal ,Persona y Veterinario.
+Este proyecto es desarrollado en Python utilizando el framework Django. 
+El proyecto trata de una app web sobre una Veterinaria, la cual renderiza la informacion que esta almacenadas en la base de datos y la muesta en las diferentes vistas dependiendo cual sea la solicitud.
+Debajo se encuentra el link para ver la app en funcionamiento 
 
 # Video Demostración.
 https://youtu.be/-H87qxX9Zgs
 
-
+#DOCUMENTACIÓN.
+Para poder encontrar los archivos que nombrare a posterior ingresar  en la caperta AppCoder.
 
 Descripcion: modelo Animal. Campos: -nombreAnimal(Char, nombre de la mascota) -edad(Integer,edad de la mascota) -tipo(Char,ej:perro,gato,iguana,etc) -motivo(Char,ej:peluqueria,vacunas,etc) -fecha(Date,es la fecha de ingreso a la veterinaria) -costo(Integer, el precio de lo que lo se le haya echo al animal)
 
