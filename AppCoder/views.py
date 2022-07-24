@@ -13,16 +13,7 @@ from django.contrib.auth import login,logout,authenticate
 from django.contrib.auth.decorators import login_required
 
  
-
-
-
 # Create your views here.
-
-
-
-# def inicio(request):
-#     return render(request,"AppCoder/inicio.html")
-
 
 
 #-----------------------------------------Mascota-------------------------------------------------------
@@ -242,9 +233,6 @@ def formularioVeterinario(request):
     else:
         miFormularioVeterinario = VeterinarioFormulario()
     return render(request, "AppCoder/formularioVeterinario.html",{"miFormularioVeterinario":miFormularioVeterinario})
-
-
-        
 
 
 
