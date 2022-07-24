@@ -1,4 +1,4 @@
-# Entrega1-Joner-Claudio
+# Proyecto-Final-Python-Joner-Claudio
 
 La tematica de la app creada, es sobre una veterinaria. La aplicación cuenta con 3 modelos: Animal ,Persona y Veterinario.
 
