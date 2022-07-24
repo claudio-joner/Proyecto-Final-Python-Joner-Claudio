@@ -23,10 +23,24 @@
                 <a class="navbar-brand" href="{% url 'inicio' %}">Inicio</a>
                 <a class="navbar-brand" href="{% url 'leerMascota' %}">Mascota</a>
                 <a class="navbar-brand" href="{% url 'leerPersona' %}">Dueño/a</a>
-                <a class="navbar-brand" href="{% url 'veterinario' %}">Veterinario</a>
+                <a class="navbar-brand" href="{% url 'leerVeterinario' %}">Veterinario</a>
                 <a class="navbar-brand" href="{% url 'busquedaMascota' %}">Busqueda</a>
                 <a class="navbar-brand" href="{% url 'Logout' %}">Cerrar Sesion</a>
-                <a class="btn btn-primary" href="#signup">Sign Up</a>
+                
+               
+
+                {% if not request.user.is_authenticated %}
+                <a class="btn btn-primary" href="{% url 'Login' %}">Iniciar Sesion</a>
+                {% endif %}
+
+                {% if request.user.is_authenticated %}
+                <img src="{{url}}" style="height: 40px; width: 40px; ">
+                <h3 class="text-muted small mb-4 mb-lg-0">Hola,{{user.username}}.</h3>
+
+                {% endif %}
+
+                
+
             </div>
         </nav>
         <!-- Masthead-->
@@ -45,6 +59,7 @@
                             <!-- To make this form functional, sign up at-->
                             <!-- https://startbootstrap.com/solution/contact-forms-->
                             <!-- to get an API token!-->
+                            <h1>{{mensaje}}</h1>
                             <form class="form-subscribe" id="contactForm" data-sb-form-api-token="API_TOKEN">
                                 
                                 <!-- This is what your users will see when the form-->

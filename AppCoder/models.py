@@ -1,5 +1,9 @@
-from pyexpat import model
+
 from django.db import models
+from django.contrib.auth.models import User
+from django.forms import ImageField
+from distutils.command.upload import upload
+
 
 # Create your models here.
 class Animal(models.Model):
@@ -26,3 +30,7 @@ class Veterinario(models.Model):
     matricula = models.CharField(max_length=40)
     def __str__(self):
         return f"Veterinario: {self.veterinario} - ApellidoVet: {self.apellidoVet} - Matricula: {self.matricula} "
+
+class Avatar(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    imagen = models.ImageField(upload_to='avatares',null=True, blank = True)

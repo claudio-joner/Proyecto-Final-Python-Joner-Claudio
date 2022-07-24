@@ -1,0 +1,36 @@
+{% extends "AppCoder/inicio.html"%}
+
+{% load static %}
+
+{% block herencia %}
+
+  
+
+    <h1>Formulario - Agregar Mascota</h1>
+    
+    {% if  miFormularioMascota.errors %}
+
+    <p style="color: red;"> Están mal los datos, revisar</p>
+
+    {% endif %}
+
+
+    <form action="" method="POST">{% csrf_token %}
+
+       
+        <table>
+
+            {{  miFormularioMascota.as_table }}
+
+
+        </table>
+
+
+        <input type="submit", value="Enviar">
+
+    </form>
+  
+
+{% endblock %}
+
+

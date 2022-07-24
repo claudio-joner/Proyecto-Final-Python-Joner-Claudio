@@ -8,18 +8,20 @@
     <h1>Listado de Dueños</h1>
     
     
-        {% for p in personas %}
-            <li>{{p}}</li>
-            <button>
-                <a href="{% url 'eliminarPersona' p.nombre %}">Borrar/ </a>
-                <a href="{% url 'editarPersona' p.nombre %}">Actualizar</a>
-            </button>
-        {% endfor %}
+    <ul>   
+    {% for p in personas %}
+        <li>{{p}}</li>
+        <button>
+            <a href="{% url 'eliminarPersona' p.nombre %}">Borrar| </a>
+            <a href="{% url 'editarPersona' p.nombre %}">Actualizar</a>
+        </button>
+        <br>
+    {% endfor %}      
+    </ul>    
     <p>
-        <a href="formularioPersona">Agregar/</a>
+        <a href="formularioPersona">Agregar</a>
         
     </p>
-
 
     
 
