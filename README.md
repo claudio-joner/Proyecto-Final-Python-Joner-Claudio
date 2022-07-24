@@ -33,12 +33,16 @@ Contiene cada una de las rutas de las vistas de la app.
 _______________________________________________________________________________________________________________________________________________________________________
 # Views.py:
 Aparecen todas las vistas que se utilizan en la app.
-Asociado a lo anterior por cada modelo se aplica el concepto de CRUD(Create, Read, Update, Delete); una vista de logueo, registro y edicion de perfil del usuario.Además tenemos la vista para buscar una mascota por su nombre.
-Ejemplo de vistas (CRUD) para el Modelo Animal: 
-Create:formularioMascota
-Read:leerMascota
-Update:editarMascota
-Delete:eliminarMascota
+Asociado a lo anterior por cada modelo se aplica el concepto de CRUD(Create, Read, Update, Delete); una vista de logueo, registro y edicion de perfil del usuario. Además tenemos la vista para buscar una mascota por su nombre.
+Ejemplo de vistas (CRUD) para el Modelo Animal:
+
+Create: vista formularioMascota
+
+Read: vista leerMascota
+
+Update: vista editarMascota
+
+Delete: vista eliminarMascota
 
 _______________________________________________________________________________________________________________________________________________________________________
 # Templates:
