@@ -36,13 +36,13 @@ Aparecen todas las vistas que se utilizan en la app.
 Asociado a lo anterior por cada modelo se aplica el concepto de CRUD(Create, Read, Update, Delete); una vista de logueo, registro y edicion de perfil del usuario. Además tenemos la vista para buscar una mascota por su nombre.
 Ejemplo de vistas (CRUD) para el Modelo Animal:
 
-Create: vista formularioMascota
+Create: vista formularioMascota.
 
-Read: vista leerMascota
+Read: vista leerMascota.
 
-Update: vista editarMascota
+Update: vista editarMascota.
 
-Delete: vista eliminarMascota
+Delete: vista eliminarMascota.
 
 _______________________________________________________________________________________________________________________________________________________________________
 # Templates:
